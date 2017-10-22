@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 
 
 
-namespace EF.Common
+namespace Common
 {
     /// <summary>
     /// 常用辅助操作类
@@ -148,9 +148,58 @@ namespace EF.Common
             SmtpClient ObjSmtpClient = new SmtpClient();
             ObjSmtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;       //指定电子邮件发送方式
             ObjSmtpClient.Host = "smtp.163.com";                                 //指定SMTP服务器
-            ObjSmtpClient.Credentials = new System.Net.NetworkCredential(FromEmail, Password);   //用户名和密码
+            ObjSmtpClient.Credentials = new System.Net.NetworkCredential(UserName, Password);   //用户名和密码
 
             MailMessage ObjMailMessage = new MailMessage(FromEmail, ToEmail);
+            ObjMailMessage.Subject = Subject;           //发送邮件主题
+            ObjMailMessage.Body = Body;                 //发送邮件内容
+            ObjMailMessage.BodyEncoding = System.Text.Encoding.Default;    //发送邮件正文编码
+            ObjMailMessage.IsBodyHtml = true;              //设置为HTML格式
+            ObjMailMessage.Priority = MailPriority.High;   //优先级
+            //if (!string.IsNullOrEmpty(StrFileName)) ObjMailMessage.Attachments.Add(new Attachment(StrFileName));  //邮件的附件
+            ObjSmtpClient.Send(ObjMailMessage);
+        }
+
+        public static void NetSendMail(string Subject, string Body, string FromEmail, List<string> ToEmail, string UserName, string Password)
+        {
+            SmtpClient ObjSmtpClient = new SmtpClient();
+            ObjSmtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;       //指定电子邮件发送方式
+            ObjSmtpClient.Host = "smtp.163.com";                                 //指定SMTP服务器
+            ObjSmtpClient.Credentials = new System.Net.NetworkCredential(UserName, Password);   //用户名和密码
+
+            MailMessage ObjMailMessage = new MailMessage();
+            ObjMailMessage.From = new MailAddress(FromEmail);
+            foreach(var o in ToEmail)
+            {
+                ObjMailMessage.To.Add(new MailAddress(o));
+            }
+            ObjMailMessage.Subject = Subject;           //发送邮件主题
+            ObjMailMessage.Body = Body;                 //发送邮件内容
+            ObjMailMessage.BodyEncoding = System.Text.Encoding.Default;    //发送邮件正文编码
+            ObjMailMessage.IsBodyHtml = true;              //设置为HTML格式
+            ObjMailMessage.Priority = MailPriority.High;   //优先级
+            //if (!string.IsNullOrEmpty(StrFileName)) ObjMailMessage.Attachments.Add(new Attachment(StrFileName));  //邮件的附件
+            ObjSmtpClient.Send(ObjMailMessage);
+        }
+
+        public static void NetSendMail(string Subject, string Body, string FromEmail, List<string> ToEmail, List<string> ToCopy, string UserName, string Password)
+        {
+            SmtpClient ObjSmtpClient = new SmtpClient();
+            ObjSmtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;       //指定电子邮件发送方式
+            ObjSmtpClient.Host = "smtp.163.com";                                 //指定SMTP服务器
+            ObjSmtpClient.Credentials = new System.Net.NetworkCredential(UserName, Password);   //用户名和密码
+
+            MailMessage ObjMailMessage = new MailMessage();
+            ObjMailMessage.From = new MailAddress(FromEmail);
+            foreach (var o in ToEmail)
+            {
+                ObjMailMessage.To.Add(new MailAddress(o));
+            }
+            foreach(var o in ToCopy)
+            {
+                ObjMailMessage.CC.Add(new MailAddress(o));
+            }
+
             ObjMailMessage.Subject = Subject;           //发送邮件主题
             ObjMailMessage.Body = Body;                 //发送邮件内容
             ObjMailMessage.BodyEncoding = System.Text.Encoding.Default;    //发送邮件正文编码

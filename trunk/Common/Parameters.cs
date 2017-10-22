@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 
-namespace EF.Common
+namespace Common
 {
     /// <summary>
     /// Post参数集合类

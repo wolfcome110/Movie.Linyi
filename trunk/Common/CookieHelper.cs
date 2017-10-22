@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace EF.Common
+namespace Common
 {
     public class CookieHelper
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EF.Common
+namespace Common
 {
     public static class ContentTypes
     {

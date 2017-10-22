@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace EF.Common
+namespace Common
 {
     /// <summary>
     /// 加密解密（DES,3DES,MD5,Base64） 类

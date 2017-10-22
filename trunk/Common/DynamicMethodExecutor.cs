@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
-namespace EF.Common
+namespace Common
 {
     public class DynamicMethodExecutor
     {
