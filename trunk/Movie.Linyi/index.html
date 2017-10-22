@@ -24,39 +24,37 @@
             <path onclick="alert(11);" id="svg_10" d="m249.5,106c0,0 46,0 46,0c0,0 -1,11 -1,11c0,0 9,1 9,1c0,0 0,25 0,25c0,0 -64,1 -64,1c0,0 1,-26 1,-26c0,0 9,-1 9,-1c0,0 0,-11 0,-11z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none" />
             <rect id="svg_11" height="44" width="65" y="265" x="242.5" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none" />
         </g>
+
+        <rect id="rect" x="10" y="20" rx="10" ry="1" height="100" width="100" fill="#ooffaa"></rect>
+
+        <rect id="rect2" x="20" y="190" rx="1" ry="1" height="100" width="100" fill="#aadfed"></rect>
+
     </svg>
 
-    <script>
-        //var svgDoc = document.getElementById("mysvg").getSVGDocument();
-        var svg_10 = document.getElementById("svg_10");
-        svg_10.addEventListener("click", function () {
-            console.log("my god...");
-        });
 
-        svg_10.onclick = function () {
-            alert("mygod");
-        };
-    </script>
 
     <svg xmlns="http://www.w3.org/2000/svg" id="main" version="1.1" height="200"></svg>
     <script>
-        var main = document.getElementById("main");
-        var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-        rect.setAttribute("width", 400);
-        rect.setAttribute("height", 300);
-        rect.setAttribute("style", "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)");
-        main.appendChild(rect);
+        var rect = document.getElementById("rect");
+        var rect2 = document.getElementById("rect2");
+        //var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        //rect.setAttribute("width", 400);
+        //rect.setAttribute("height", 300);
+        //rect.setAttribute("style", "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)");
+        //main.appendChild(rect);
 
 
         
-        main.addEventListener("click", function () {
+        rect.addEventListener("click", function () {
             console.log("my god...");
+            this.setAttribute("style", "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)");
         });
 
-
+        rect2.addEventListener("click", function () {
+            console.log("my god..rect2.");
+            this.setAttribute("style", "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)");
+        });
     </script>
-
-
 
 
 </body>
