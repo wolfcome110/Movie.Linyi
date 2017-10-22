@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <svg id="mysvg" width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+        <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+        <g>
+            <title>background</title>
+            <rect fill="#fff" id="canvas_background" height="402" width="582" y="-1" x="-1" />
+            <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+                <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" />
+            </g>
+        </g>
+        <g>
+            <title>Layer 1</title>
+            <path id="svg_7" d="m175.5,69" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none" />
+            <path id="svg_8" d="m196.5,77c0,0 195,2 195,2c0,0 49,129 49,129c0,0 -309,-2 -309,-2c0,0 65,-129 65,-129z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none" />
+            <path id="svg_9" d="m193.5,234c0,0 201,3 201,3c0,0 52,101 52,101c0,0 -302,-4 -302,-4c0,0 49,-100 49,-100z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none" />
+            <path onclick="alert(11);" id="svg_10" d="m249.5,106c0,0 46,0 46,0c0,0 -1,11 -1,11c0,0 9,1 9,1c0,0 0,25 0,25c0,0 -64,1 -64,1c0,0 1,-26 1,-26c0,0 9,-1 9,-1c0,0 0,-11 0,-11z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none" />
+            <rect id="svg_11" height="44" width="65" y="265" x="242.5" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none" />
+        </g>
+    </svg>
+
+    <script>
+        //var svgDoc = document.getElementById("mysvg").getSVGDocument();
+        var svg_10 = document.getElementById("svg_10");
+        svg_10.addEventListener("click", function () {
+            console.log("my god...");
+        });
+
+        svg_10.onclick = function () {
+            alert("mygod");
+        };
+    </script>
+
+    <svg xmlns="http://www.w3.org/2000/svg" id="main" version="1.1" height="200"></svg>
+    <script>
+        var main = document.getElementById("main");
+        var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        rect.setAttribute("width", 400);
+        rect.setAttribute("height", 300);
+        rect.setAttribute("style", "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)");
+        main.appendChild(rect);
+
+
+        
+        main.addEventListener("click", function () {
+            console.log("my god...");
+        });
+
+
+    </script>
+
+
+
+
+</body>
+</html>
