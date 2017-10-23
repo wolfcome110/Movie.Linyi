@@ -5,6 +5,7 @@
     <title></title>
     <meta charset="utf-8" />
     <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/snap.svg-min.js"></script>
 </head>
 <body>
     <svg id="mysvg" width="580" height="400" xmlns="http://www.w3.org/2000/svg">
@@ -57,5 +58,11 @@
     </script>
 
 
+    <svg id="svg" width="500" height="500"></svg>
+    <script>
+        var svg = Snap("#svg");
+        var c1 = svg.paper.circle(50, 50, 40), c2 = svg.paper.rect(150, 10, 120, 80);
+        var g = svg.paper.g(c2, c1); // 注意这里元素的顺序是不一样的
+    </script>
 </body>
 </html>
