@@ -45,7 +45,7 @@
         //main.appendChild(rect);
 
 
-        
+
         rect.addEventListener("click", function () {
             console.log("my god...");
             this.setAttribute("style", "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)");
@@ -60,9 +60,31 @@
 
     <svg id="svg" width="500" height="500"></svg>
     <script>
+        var o = { id: 1, name: "n1", c: [{ a: 1, b: "#b1" }] };
         var svg = Snap("#svg");
         var c1 = svg.paper.circle(50, 50, 40), c2 = svg.paper.rect(150, 10, 120, 80);
         var g = svg.paper.g(c2, c1); // 注意这里元素的顺序是不一样的
+        c1.data("key", o).click(function () {
+            console.log(this.data("key"));
+        });
+
+        c2.click(function () {
+            console.log("bbbbb");
+        });
+    </script>
+
+    <svg id="svg1" width="200" height="100">
+        <circle cx="50" cy="50" r="40" data-x="50"></circle>
+        <circle cx="150" cy="50" r="40" data-x="150"></circle>
+    </svg>
+
+    <script>
+        var svg1 = Snap("#svg1");
+        svg1.selectAll("circle").attr({
+            //fill: "#f00"
+        }).click(function () {
+            //console.log(this.data("x"));
+        });
     </script>
 </body>
 </html>
