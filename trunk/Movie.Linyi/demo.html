@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/snap.svg-min.js"></script>
+
+</head>
+<body>
+    <div class="a">sss</div>
+    <svg id="svg" width="580" height="400" xmlns="http://www.w3.org/2000/svg" style="border:1px solid"></svg>
+    <button id="btn" type="button">Go!!</button>
+    <script>
+        var svg = Snap("#svg");
+        var c1 = svg.paper.path("M60 60 h60 v60 H60 z").attr({
+            fill: "#f00",	// 红色
+        }).click(function () {
+
+            console.log(this.attr("d"));
+            var d = Snap.path.getBBox(this.attr("d"));
+            console.log(d);
+            var x = d.x + d.width / 2 - 8;
+            var y = d.y + d.height / 2 - 8;
+            var c = svg.paper.image("ok.png", x, y, 16, 16);
+
+            svg.paper.g(this, c);
+            console.log(c.attr("x"), c.attr("y"), c.attr("width"), c.attr("height"));
+        });
+
+        var c2 = svg.paper.path("M130 60 h60 v60 H130 z").attr({
+            fill: "#f00",	// 红色
+        }).click(function () {
+
+            console.log(this.attr("d"));
+            var d = Snap.path.getBBox(this.attr("d"));
+            console.log(d);
+            var x = d.x + d.width / 2 - 8;
+            var y = d.y + d.height / 2 - 8;
+            var c = svg.paper.image("ok.png", x, y, 16, 16);
+
+            svg.paper.g(this, c);
+            console.log(c.attr("x"), c.attr("y"), c.attr("width"), c.attr("height"));
+        });
+    </script>
+</body>
+</html>
